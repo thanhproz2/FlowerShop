@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿@using FlowerShop.Models
+@{
+    var db = new FlowerShop();
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type"
@@ -6,7 +10,7 @@
     <title>Flower Shop</title>
 
     <link rel="stylesheet" type="text/css"
-          href="css/style.css" />
+          href="~/Content/css/style.css" />
 
 </head>
 <body>
@@ -15,7 +19,7 @@
         <div class="header">
             <div class="logo">
                 <a href="index.html">
-                    <img src="images/logo.gif" alt="" title=""
+                    <img src="~/Content/images/logo.gif" alt="" title=""
                          border="0" />
                 </a>
             </div>
@@ -42,12 +46,12 @@
             <div class="right_content">
                 <div class="languages_box">
                     <span class="red">Languages:</span> <a href="#" class="selected">
-                        <img src="images/gb.gif" alt="" title="" border="0" />
+                        <img src="~/Content/images/gb.gif" alt="" title="" border="0" />
                     </a> <a href="#">
-                        <img src="images/fr.gif" alt="" title=""
+                        <img src="~/Content/images/fr.gif" alt="" title=""
                              border="0" />
                     </a> <a href="#">
-                        <img src="images/de.gif" alt=""
+                        <img src="~/Content/images/de.gif" alt=""
                              title="" border="0" />
                     </a>
                 </div>
@@ -60,7 +64,7 @@
                 <div class="cart">
                     <div class="title">
                         <span class="title_icon">
-                            <img src="images/cart.gif" alt=""
+                            <img src="~/Content/images/cart.gif" alt=""
                                  title="" />
                         </span>My cart
                     </div>
@@ -76,13 +80,13 @@
 
                 <div class="title">
                     <span class="title_icon">
-                        <img src="images/bullet3.gif"
+                        <img src="~/Content/images/bullet3.gif"
                              alt="" title="" />
                     </span>About Our Shop
                 </div>
                 <div class="about">
                     <p>
-                        <img src="images/about.gif" alt="" title="" class="right" />
+                        <img src="~/Content/images/about.gif" alt="" title="" class="right" />
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                         enim ad minim veniam, quis nostrud.
@@ -95,7 +99,7 @@
 
                     <div class="title">
                         <span class="title_icon">
-                            <img src="images/bullet4.gif"
+                            <img src="~/Content/images/bullet4.gif"
                                  alt="" title="" />
                         </span>Promotions
                     </div>
@@ -103,10 +107,10 @@
                         <a href="details.html">product name</a>
                         <div class="new_prod_bg">
                             <span class="new_icon">
-                                <img src="images/promo_icon.gif"
+                                <img src="~/Content/images/promo_icon.gif"
                                      alt="" title="" />
                             </span> <a href="details.html">
-                                <img src="images/thumb1.gif" alt="" title="" class="thumb" border="0" />
+                                <img src="~/Content/images/thumb1.gif" alt="" title="" class="thumb" border="0" />
                             </a>
                         </div>
                     </div>
@@ -115,10 +119,10 @@
                         <a href="details.html">product name</a>
                         <div class="new_prod_bg">
                             <span class="new_icon">
-                                <img src="images/promo_icon.gif"
+                                <img src="~/Content/images/promo_icon.gif"
                                      alt="" title="" />
                             </span> <a href="details.html">
-                                <img src="images/thumb2.gif" alt="" title="" class="thumb" border="0" />
+                                <img src="~/Content/images/thumb2.gif" alt="" title="" class="thumb" border="0" />
                             </a>
                         </div>
                     </div>
@@ -127,7 +131,7 @@
                         <a href="details.html">product name</a>
                         <div class="new_prod_bg">
                             <span class="new_icon">
-                                <img src="images/promo_icon.gif"
+                                <img src="~/Content/images/promo_icon.gif"
                                      alt="" title="" />
                             </span> <a href="details.html">
                                 <img src="images/thumb3.gif" alt="" title="" class="thumb" border="0" />
@@ -147,17 +151,15 @@
                     </div>
 
                     <ul class="list">
+                        @{ 
+                            var categories = db.Categories.ToList();
+                        }
+                        @{ foreach (var c in categories)
+                            {
+                                <li><a href="@Url.Action("Category", "Product", new { id = c.id})">@c.name</a></li>
+                            }
+                        }
                         <li><a href="#">accesories</a></li>
-                        <li><a href="#">flower gifts</a></li>
-                        <li><a href="#">specials</a></li>
-                        <li><a href="#">hollidays gifts</a></li>
-                        <li><a href="#">accesories</a></li>
-                        <li><a href="#">flower gifts</a></li>
-                        <li><a href="#">specials</a></li>
-                        <li><a href="#">hollidays gifts</a></li>
-                        <li><a href="#">accesories</a></li>
-                        <li><a href="#">flower gifts</a></li>
-                        <li><a href="#">specials</a></li>
                     </ul>
 
                     <div class="title">
