@@ -1,6 +1,6 @@
 ﻿@using FlowerShop.Models
 @{
-    var db = new FlowerShop();
+    var db = new FlowerShopEntities();
 }
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -159,7 +159,6 @@
                                 <li><a href="@Url.Action("Category", "Product", new { id = c.id})">@c.name</a></li>
                             }
                         }
-                        <li><a href="#">accesories</a></li>
                     </ul>
 
                     <div class="title">

@@ -189,6 +189,16 @@
     <Content Include="Content\js\prototype.js" />
     <Content Include="Content\js\scriptaculous.js" />
     <Content Include="Global.asax" />
+    <Content Include="Models\FlowerShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FlowerShopModel.edmx</DependentUpon>
+      <LastGenOutput>FlowerShopModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FlowerShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FlowerShopModel.edmx</DependentUpon>
+      <LastGenOutput>FlowerShopModel.cs</LastGenOutput>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
@@ -199,14 +209,42 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\FlowerShop.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrdersDetail.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlowerShopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerShopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlowerShopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FlowerShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlowerShopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrdersDetail.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>FlowerShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +255,13 @@
     </Content>
     <Content Include="Views\_LayoutMain.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <EntityDeploy Include="Models\FlowerShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FlowerShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FlowerShopModel.edmx.diagram">
+      <DependentUpon>FlowerShopModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -226,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
